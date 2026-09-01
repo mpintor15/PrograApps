@@ -1,25 +1,16 @@
-# Flutter/Dart
-.dart_tool/
-.packages
-.pub-cache/
-.pub/
-build/
-*.lock
-
-# IDE
-.idea/
-.vscode/
-*.iml
-
-# macOS
+# Sistema
 .DS_Store
-
-# Android/iOS generated files
-android/local.properties
-ios/Pods/
-*.xcworkspace
-*.xcodeproj/project.xcworkspace/
-*.xcodeproj/xcuserdata/
-
-# Logs
 *.log
+
+# Flutter/Dart
+**/.dart_tool/
+**/.idea/
+**/build/
+**/.pub-cache/
+**/.pub/
+**/pubspec.lock
+**/android/local.properties
+**/ios/Pods/
+**/*.xcworkspace
+**/*.xcodeproj/project.xcworkspace/
+**/*.xcodeproj/xcuserdata/
