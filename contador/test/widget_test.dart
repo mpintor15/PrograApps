@@ -27,4 +27,27 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  testWidgets('opens the image screen and returns to the home', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const MiApp());
+
+    await tester.scrollUntilVisible(
+      find.text('Ver imagen'),
+      200,
+      scrollable: find.byType(Scrollable),
+    );
+    await tester.tap(find.text('Ver imagen'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Segunda pantalla'), findsOneWidget);
+    expect(find.byType(Image), findsOneWidget);
+    expect(find.byTooltip('Volver'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Volver'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Mi Contador'), findsOneWidget);
+  });
 }

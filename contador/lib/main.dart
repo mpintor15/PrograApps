@@ -124,11 +124,42 @@ class _ContadorPageState extends State<ContadorPage> {
             const SizedBox(height: 20),
 
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const SegundaPantalla(),
+                  ),
+                );
+              },
               child: const Text('Ver imagen'),
             ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class SegundaPantalla extends StatelessWidget {
+  const SegundaPantalla({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Segunda pantalla'),
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back),
+          tooltip: 'Volver',
+        ),
+      ),
+      body: Center(
+        child: Image.asset(
+          'assets/contador.jpeg',
+          fit: BoxFit.contain,
         ),
       ),
     );
