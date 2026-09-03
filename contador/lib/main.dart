@@ -17,6 +17,9 @@ class MiApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const ContadorPage(),
+      routes: {
+        '/segunda': (context) => const SegundaPantalla(),
+      },
     );
   }
 }
@@ -124,14 +127,7 @@ class _ContadorPageState extends State<ContadorPage> {
             const SizedBox(height: 20),
 
             ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (context) => const SegundaPantalla(),
-                  ),
-                );
-              },
+              onPressed: () => Navigator.pushNamed(context, '/segunda'),
               child: const Text('Ver imagen'),
             ),
             ],
