@@ -56,10 +56,11 @@ class _ContadorPageState extends State<ContadorPage> {
         title: const Text('Mi Contador'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
             Image.asset(
               'assets/contador.jpeg',
               width: 180,
@@ -119,7 +120,15 @@ class _ContadorPageState extends State<ContadorPage> {
               icon: const Icon(Icons.refresh),
               label: const Text('Reset'),
             ),
-          ],
+
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Ver imagen'),
+            ),
+            ],
+          ),
         ),
       ),
     );
