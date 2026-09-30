@@ -8,7 +8,11 @@ En el paso 3 (entrar a Control, incrementar y salir con el gesto del sistema en 
 
 Lo que quedó desactualizado no es el dato guardado, sino **la copia en memoria que tiene `PantallaVisor` en su `State` (`_contador`)**. El valor solo llega de vuelta al visor si alguien lo devuelve con `Navigator.pop(valor)`, y el gesto del sistema hace `pop` sin valor, así que el `setState` del visor nunca se ejecuta.
 
-Para que el contador viajara entre las dos pantallas tuvieron que ponerse de acuerdo **cuatro lugares del código**: (1) el constructor de `PantallaControl`, que recibe el valor inicial; (2) el `setState` de Control, que mantiene su propia copia; (3) el botón "Volver", que hace `Navigator.pop(_contador)` para devolver el valor; y (4) el `await Navigator.push` del visor, que recibe ese valor y hace su propio `setState`. Si cualquiera falla o se omite (como pasa con el gesto), las dos pantallas divergen.
+Para que el contador viajara entre las dos pantallas tuvieron que ponerse de acuerdo **cuatro lugares del código**: 
+1) El constructor de `PantallaControl`, que recibe el valor inicial
+2) El `setState` de Control, que mantiene su propia copia
+3) El botón "Volver", que hace `Navigator.pop(_contador)` para devolver el valor
+4) El `await Navigator.push` del visor, que recibe ese valor y hace su propio `setState`. Si cualquiera falla o se omite (como pasa con el gesto), las dos pantallas divergen.
 
 ### Pregunta 2 (Riverpod)
 
