@@ -27,13 +27,13 @@ Sería útil en una situación real como depurar un reporte del tipo "el saldo/c
 ### Pregunta 4 (diffs de la arquitectura)
 
 ```text
-$ git diff version/setstate version/riverpod -- parte_a_contador/lib/domain parte_a_contador/lib/data
+$ git diff deber1/setstate deber1/riverpod -- deber1-estado-streams/parte_a_contador/lib/domain deber1-estado-streams/parte_a_contador/lib/data
 (sin salida)
 
-$ git diff version/setstate version/bloc -- parte_a_contador/lib/domain parte_a_contador/lib/data
+$ git diff deber1/setstate deber1/bloc -- deber1-estado-streams/parte_a_contador/lib/domain deber1-estado-streams/parte_a_contador/lib/data
 (sin salida)
 
-$ git diff version/setstate version/bloc --stat -- parte_a_contador/lib/presentation
+$ git diff deber1/setstate deber1/bloc --stat -- deber1-estado-streams/parte_a_contador/lib/presentation
  .../lib/presentation/estado/contador_cubit.dart    | 20 ++++++++
  .../lib/presentation/estado/contador_observer.dart | 12 +++++
  .../presentation/pantallas/pantalla_control.dart   | 55 +++++++-------------
