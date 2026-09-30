@@ -19,19 +19,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Contador',
-      theme: ThemeData(colorSchemeSeed: Colors.indigo),
-      home: BlocProvider(
-        create: (_) {
-          final repositorio = ContadorPrefsRepository();
-          return ContadorCubit(
-            ObtenerContador(repositorio),
-            Incrementar(repositorio),
-            Decrementar(repositorio),
-          )..cargar();
-        },
-        child: const PantallaVisor(),
+    return BlocProvider(
+      create: (_) {
+        final repositorio = ContadorPrefsRepository();
+        return ContadorCubit(
+          ObtenerContador(repositorio),
+          Incrementar(repositorio),
+          Decrementar(repositorio),
+        )..cargar();
+      },
+      child: MaterialApp(
+        title: 'Contador',
+        theme: ThemeData(colorSchemeSeed: Colors.indigo),
+        home: const PantallaVisor(),
       ),
     );
   }
